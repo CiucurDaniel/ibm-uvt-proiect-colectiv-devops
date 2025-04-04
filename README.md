@@ -13,6 +13,6 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
   * Install Podman
   * Build an image
   * Tag an image
-  * Pull an image
+  * Pull an image from a public container registry
 
 * 3-container-orchestration
