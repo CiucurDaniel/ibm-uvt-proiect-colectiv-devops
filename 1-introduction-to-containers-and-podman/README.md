@@ -51,4 +51,7 @@ to less overhead. It works with very few required resources.
 
 ## Dockerfile (definition) to Image (build) to Containers (running) 
 
+A Dockerfile is the Docker image’s source code. A Dockerfile is a text file containing various instructions and configurations. The FROM command in a Dockerfile identifies the base image from which you are constructing.
+
+
 ## Podman
