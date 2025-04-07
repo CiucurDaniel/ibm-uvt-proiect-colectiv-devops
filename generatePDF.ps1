@@ -2,7 +2,7 @@
 $pdflatexPath = "C:\Program Files\MiKTeX\miktex\bin\x64\pdflatex.exe"
 
 # Output file name
-$outputPdf = "final.pdf"
+$outputPdf = "Podman_IBM_UVT_Proiect_Colectiv_DevOps.pdf"
 $combinedMd = "combined.md"
 
 # Remove old combined file if it exists
