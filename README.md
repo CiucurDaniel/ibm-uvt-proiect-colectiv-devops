@@ -9,10 +9,9 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
   * Containers vs Virtual Machines
   * Dockerfile (definition) to Image (build) to Containers (running) 
   * Podman
-  * Rokcylinux
 
 * 2-hands-on-exercises
-  * Install Podman
+  * Install Podman (Rokcylinux)
   * Create account on Dockerhub.com
   * Build an image
   * Tag an image
@@ -26,3 +25,7 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
 ## Repository structure
 
 ...
+
+https://docs.docker.com/build/building/best-practices/
+
+https://docs.rockylinux.org/gemstones/containers/podman/
