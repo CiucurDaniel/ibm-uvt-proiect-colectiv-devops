@@ -10,13 +10,29 @@ if (Test-Path $combinedMd) {
     Remove-Item $combinedMd
 }
 
-# Collect and combine all README.md files, fixing relative image paths
+# Collect and combine all README.md files, fixing relative image paths and formatting titles
 Get-ChildItem -Path . -Recurse -Filter "README.md" | ForEach-Object {
     $dirName = $_.Directory.Name
-    Add-Content -Path $combinedMd -Value "`n# $dirName`n"
-    
+
+    # Extract the number (if it exists) and the rest of the directory name
+    if ($dirName -match '^(\d+)-(.*)$') {
+        $number = $matches[1]
+        $title = $matches[2] -replace '[-_]', ' ' -split '\s+' | ForEach-Object { $_.Substring(0,1).ToUpper() + $_.Substring(1).ToLower() }
+        $prettyTitle = "$number $($title -join ' ')"
+    }
+    else {
+        # If no number, just process as a regular title
+        $title = $dirName -replace '[-_]', ' ' -split '\s+' | ForEach-Object { $_.Substring(0,1).ToUpper() + $_.Substring(1).ToLower() }
+        $prettyTitle = $title -join ' '
+    }
+
+    # Add the formatted title to the combined markdown
+    Add-Content -Path $combinedMd -Value "`n# $prettyTitle`n"
+
+    # Read content and fix image paths
     $content = Get-Content $_.FullName
     $fixedContent = $content -replace "\!\[(.*?)\]\(\.\.\/_img\/(.*?)\)", '![${1}](./_img/${2})'
+
     Add-Content -Path $combinedMd -Value $fixedContent
 }
 
@@ -30,4 +46,3 @@ try {
 
 # Clean up temporary file
 Remove-Item $combinedMd
-s
