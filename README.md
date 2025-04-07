@@ -1,16 +1,21 @@
 # IBM UVT Proiect Colectiv DevOps
 
+<img src="../_img/ibm-logo.png" width="200" />
+
 This repository holds course materials for "Podman" course, part of `DevOps UVT Proiect Colectiv`. 
 
 ## Course Structure
 
-* 1-introduction-to-containers-and-podman
+* 1-introduction-to-containers-and-podman (teoretical section)
   * What are containers?
   * Containers vs Virtual Machines
-  * Dockerfile (definition) to Image (build) to Containers (running) 
   * Podman
+  * Dockerfile (definition) to Image (build) to Containers (running) 
+  * Writing Containerfiles (Dockerfiles)
+  * Container Registries
+  * Further Reading Materials 
 
-* 2-hands-on-exercises
+* 2-hands-on-exercises (practical section)
   * Install Podman (Rokcylinux)
   * Create account on Dockerhub.com
   * Build an image
@@ -25,7 +30,3 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
 ## Repository structure
 
 ...
-
-https://docs.docker.com/build/building/best-practices/
-
-https://docs.rockylinux.org/gemstones/containers/podman/
