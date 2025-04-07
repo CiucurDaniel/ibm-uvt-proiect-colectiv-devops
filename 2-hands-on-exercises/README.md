@@ -4,11 +4,21 @@
 
 ## Install Podman (Rokcylinux)
 
-...
+Podman should come pre-installed in Rockylinux. If that is not the case, install it using:
+
+```bash
+```
+
+
+```bash
+podman version
+```
 
 ## Create account on Dockerhub.com
 
-...
+Go to https://hub.docker.com and sign up for an account. 
+
+Remeber the credentials! We will need them to push images to DockerHub
 
 ## Build an image
 
