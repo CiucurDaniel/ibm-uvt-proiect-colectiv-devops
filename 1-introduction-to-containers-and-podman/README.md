@@ -127,3 +127,4 @@ While Docker Hub is a popular option, there are many other available container r
 * [Best practices for building containers](https://docs.docker.com/build/building/best-practices/)
 * [Write your first Containerfile for Podman](https://www.redhat.com/en/blog/write-your-first-containerfile-podman)
 * [Base Images](https://docs.docker.com/build/building/base-images/)
+* [Developing inside a container via VsCode](https://code.visualstudio.com/docs/devcontainers/containers)
