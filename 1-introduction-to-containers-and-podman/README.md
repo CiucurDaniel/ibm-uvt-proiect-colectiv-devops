@@ -120,6 +120,10 @@ An **image registry** is a centralized location for **storing and sharing** your
 
 While Docker Hub is a popular option, there are many other available container registries available today, including Amazon Elastic Container Registry(ECR), Azure Container Registry (ACR), and Google Container Registry (GCR). You can even run your private registry on your local system or inside your organization. For example, Harbor, JFrog Artifactory, GitLab Container registry etc.
 
+To address a registry artifact for push and pull operations with Docker or other client tools, combine the fully qualified registry name, repository name (including namespace path if applicable), and an artifact tag or manifest digest. See previous sections for explanations of these terms.
+
+Address by tag: `[loginServerUrl]/[repository][:tag]`
+Address by digest: `[loginServerUrl]/[repository@sha256][:digest]`
 
 # Further Reading Materials 
 
