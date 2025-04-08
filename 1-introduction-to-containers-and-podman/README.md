@@ -44,11 +44,40 @@ to less overhead. It works with very few required resources.
 
 ## Podman
 
-...
+![Podman logo](../_img/podman-logo-dark.png "Podman logo")
 
-... basic Podman commands
+"Podman is a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. Podman provides a command line interface (CLI) familiar to anyone who has used the Docker Container Engine. Most users can simply alias Docker to Podman (alias docker=podman) without any problems. Similar to other common Container Engines (Docker, CRI-O, containerd), Podman relies on an OCI compliant Container Runtime (runc, crun, runv, etc) to interface with the operating system and create the running containers. This makes the running containers created by Podman nearly indistinguishable from those created by any other common container engine." - Podman docs
 
-...
+Bellow are some of the basic Podman commands a begginer should know:
+
+```bash
+# Verifiy if Podman is installed and check the version
+podman version
+
+# Build an image using instructions from Containerfiles
+podman build 
+
+# Run a command in a new container
+podman run  
+
+# Save image(s) to an archive
+podman save 
+
+# Load image(s) from a tar archive
+podman load 
+
+# List images in local storage
+podman images
+
+# List containers
+podman ps 
+
+# Run a process in a running container
+podman exec
+
+# Log in to a container registry
+podman login
+```
 
 ## Containerfile (definition) to Image (build) to Containers (running) 
 
