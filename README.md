@@ -1,6 +1,6 @@
 # IBM UVT Proiect Colectiv DevOps
 
-<img src="../_img/ibm-logo.png" width="200" />
+<img src="./_img/ibm-logo.png" width="100" />
 
 This repository holds course materials for "Podman" course, part of `DevOps UVT Proiect Colectiv`. 
 
