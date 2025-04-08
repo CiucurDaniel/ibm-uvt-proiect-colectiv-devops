@@ -121,7 +121,7 @@ CMD ["./hello-app"]
 ```bash
 docker build -t go-hello-app .
 
-docker run -p 8080:8080 go-hello-app
+docker run -d -p 8080:8080 go-hello-app
 
 curl http://localhost:8080 # may need to install curl on rockylinux
 ```
@@ -129,6 +129,8 @@ curl http://localhost:8080 # may need to install curl on rockylinux
 >HINT: Use `docker build --help` to check for important flags. In this case we are interested to gie the image a name and tag which is done via  `-t, --tag Name and optionally a tag (format: "name:tag")` flag.     
 
 >HINT: Port forwarding in Docker/Podman allows you to map a port on your local machine to a port inside the container, enabling you to access the container’s services from outside.
+
+>HINT: The `-d` flag ensures that the container runs in detached mode, so your terminal remains free for other commands.
 
 ## Push an image to a public container registry
 
