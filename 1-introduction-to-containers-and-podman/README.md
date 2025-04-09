@@ -123,6 +123,7 @@ While Docker Hub is a popular option, there are many other available container r
 To address a registry artifact for push and pull operations with Docker or other client tools, combine the fully qualified registry name, repository name (including namespace path if applicable), and an artifact tag or manifest digest. See previous sections for explanations of these terms.
 
 Address by tag: `[loginServerUrl]/[repository][:tag]`
+
 Address by digest: `[loginServerUrl]/[repository@sha256][:digest]`
 
 # Further Reading Materials 
