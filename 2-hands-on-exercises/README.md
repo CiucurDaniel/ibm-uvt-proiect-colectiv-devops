@@ -31,12 +31,16 @@ Go to https://hub.docker.com and sign up for an account.
 # Pull an ubuntu image
 podman pull docker.io/ubuntu:22.04
 
+# list local images
+podman image list
+
 # Run your first container
-docker run --rm ubuntu:22.04 cat /etc/os-release
+podman run --rm ubuntu:22.04 cat /etc/os-release
 
 # Run container interactively
-docker run -it --name my-container ubuntu:22.04
+podman run -it --name my-container ubuntu:22.04
 
+# (inside container) install git
 apt-get update && apt-get install -y git
 ```
 
