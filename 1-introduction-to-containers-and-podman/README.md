@@ -5,12 +5,13 @@
 Software   applications  typically   depend   on   other   libraries,   configuration   files,   or
 services that are provided by the runtime environment. 
 
-Containers ares a set of one or more processes that are isolated from the rest of the system.
-
-Containers provide many of the same benefits as virtual machines, such as *security*, *storage*, and *network isolation*. Containers *require far fewer hardware resources and are quick to start and terminate*. They also **isolate the libraries and the runtime resources (such as CPU and storage) for an application** to minimize the impact of any OS update to the host OS.
-
 One of the bigger pain points that has traditionally existed between development and
 operations teams is how to make changes rapidly enough to support effective development but without risking the stability of the production environment and infrastructure. 
+
+Containers ares a set of one or more processes that are isolated from the rest of the system.
+
+Containers provide many of the same benefits as virtual machines, such as *security*, *storage*, and *network isolation*. Containers *require far fewer hardware resources and are quick to start and terminate*. They also *isolate the libraries and the runtime resources (such as CPU and storage) for an application* to minimize the impact of any OS update to the host OS.
+
 
 Containers make it easier for developers to develop an application in a container in their local environment and deploy that same container into production, minimizing risk and development overhead while also cutting down on the amount of deployment effort required of operations engineers.
 
