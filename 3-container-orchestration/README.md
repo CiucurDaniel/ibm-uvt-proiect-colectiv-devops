@@ -2,18 +2,46 @@
 
 ## What/Why?
 
-Today an organization might have hundreds or thousands of containers. An amount that would be nearly impossible for teams to manage manually. This is where container orchestration comes in.
+Today an organization might have hundreds or thousands of containers. An amount that would be nearly impossible for teams to manage manually. 
 
-A container orchestration platform schedules and automates management like container deployment, networking, load balancing, scalability and availability.
+**Problem** : as the number of containers managed by an organization grows, the work of manually starting them rises exponentially along with the need to quickly respond to external demands.
 
-* Provisioning
-* Redundancy
-* Health monitoring
-* Resource allocation
-* Scaling and load balancing
-* Moving between physical hosts
+**Enterprise needs**:
+
+* Easy communication between a large number of services
+* Resources limits on applications regardless of the number fo containers running them
+* To respond to application usage spikes to increase or decrease running containers
+* Reacs to service deterioration with health checks
+* Gradual roll out fo a new release to a set of users
+
+This is where **container orchestration** comes in.
 
 ## Kubernetes and Openshift
+
+**Kubernetes is an orchestration service that simplifies the deployment, management, and scaling of containerized applications.**
+
+Kubernetes is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, the smallest unit if kunernetes is a pod that consist of one or more containers.
+
+Kubernetes features of top of a container infra:
+
+**Service discovery and loading balancing** : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.
+**Horizontal scaling** : Applications can scale up and down manually or automatically
+**Self-Healing**: user-defined health checks to monitor containers to restart in case of failure
+**Automated rollout and rollback** : roll updates out to application containers, if something goes wrong kubernetes can rollback to previous integration of the deployment
+**Secrets and configuration management** : can manage the config settings fo application without rebuilding container
+**Operators** : use API to update the cluster state reacting to change in the app state
+
+Red Hat OpenShift Container Plataform (RHOCP) is a set of modular components and services build on top of Kubernetes, adds the capabilities to provide PaaS platform.
+
+OpenShift features to kubernetes cluster :
+
+**Itegrated developer workflow** : integrates a build in container registry, CI/CD pipeline and S2I, a tool to build artifacts from source repositories to container image
+*Routes* : expose service to the outside world
+**Metrics and logging** : Metric service and aggregated logging
+**Unified UI** : UI to manage the different capabilities
+
+
+## Kubernetes Arhitecture
 
 A Kubernetes cluster consists of a control plane plus a set of worker machines, called nodes, that run containerized applications. Every cluster needs at least one worker node in order to run Pods.
 

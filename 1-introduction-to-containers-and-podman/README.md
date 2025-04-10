@@ -2,16 +2,12 @@
 
 ## What are containers?
 
+Containers ares a set of one or more processes that are isolated from the rest of the system.
+
+Containers provide many of the same benefits as virtual machines, such as *security*, *storage*, and **network isolation**. Containers **require far fewer hardware resources and are quick to start and terminate**. They also **isolate the libraries and the runtime resources (such as CPU and storage) for an application** to minimize the impact of any OS update to the host OS.
+
 One of the bigger pain points that has traditionally existed between development and
 operations teams is how to make changes rapidly enough to support effective development but without risking the stability of the production environment and infrastructure. 
-
-A relatively new technology that helps alleviate some of this friction is the
-idea of software containers — isolated structures that can be developed and deployed
-relatively independently from the underlying operating system or hardware.
-
-Similar to virtual machines, containers provide a way of sandboxing the code that
-runs in them, but unlike virtual machines, they generally have less overhead and less
-dependence on the operating system and hardware that support them. 
 
 This makes it
 easier for developers to develop an application in a container in their local environment and deploy that same container into production, minimizing risk and development overhead while also cutting down on the amount of deployment effort required
