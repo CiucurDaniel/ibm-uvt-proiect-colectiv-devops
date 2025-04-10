@@ -12,7 +12,6 @@ Containers ares a set of one or more processes that are isolated from the rest o
 
 Containers provide many of the same benefits as virtual machines, such as *security*, *storage*, and *network isolation*. Containers *require far fewer hardware resources and are quick to start and terminate*. They also *isolate the libraries and the runtime resources (such as CPU and storage) for an application* to minimize the impact of any OS update to the host OS.
 
-
 Containers make it easier for developers to develop an application in a container in their local environment and deploy that same container into production, minimizing risk and development overhead while also cutting down on the amount of deployment effort required of operations engineers.
 
 Containers help DevOps by enabling consistent and repeatable environments across development, testing, and production, which aligns development and operations teams by reducing configuration discrepancies and ensuring the application behaves the same way across all stages. This streamlines the CI/CD pipeline, accelerates deployment, and minimizes the risk of errors during transitions from development to production.
@@ -90,6 +89,7 @@ podman login
 
 A Containerfile (Dockerfile) is the Docker image’s source code. A Containerfile (Dockerfile) is a text file containing various instructions and configurations. The `FROM` command in a Containerfile (Dockerfile) identifies the base image from which you are constructing.
 
+![Dockerfile vs image vs container illustration](../_img/dockerfile-image-container.png "Dockerfile vs image vs container illustration")
 
 ## Writing Containerfiles (Dockerfiles)
 
