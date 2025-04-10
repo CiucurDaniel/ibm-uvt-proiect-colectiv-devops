@@ -104,7 +104,7 @@ vi Containerfile
 ```
 
 ```Dockerfile
-FROM golang:1.20
+FROM docker.io/golang:1.20
 
 WORKDIR /app
 
@@ -123,11 +123,13 @@ CMD ["./hello-app"]
 ```
 
 ```bash
-docker build -t go-hello-app .
+podman build -t go-hello-app .
 
 docker run -d -p 8080:8080 go-hello-app
 
-curl http://localhost:8080 # may need to install curl on rockylinux
+curl http://localhost:8080 # you need to install curl on rockylinux via: dnf install curl
+
+podman stop <generated_name_for_container>
 ```
 
 >HINT: Use `docker build --help` to check for important flags. In this case we are interested to gie the image a name and tag which is done via  `-t, --tag Name and optionally a tag (format: "name:tag")` flag.     
@@ -139,11 +141,15 @@ curl http://localhost:8080 # may need to install curl on rockylinux
 ## Push an image to a public container registry
 
 ```bash
-docker login docker.io
+podman login docker.io
 
-docker tag <a> <ab>
+podman image ls
 
-docker push 
+podman tag go-hello-app docker.io/ciucurdaniel/go-hello-app:latest
+
+podman push docker.io/ciucurdaniel/go-hello-app:latest
 ```
 
 Go to container registry and check your image will now exist within a repository.
+
+Example: https://hub.docker.com/r/ciucurdaniel/go-hello-app

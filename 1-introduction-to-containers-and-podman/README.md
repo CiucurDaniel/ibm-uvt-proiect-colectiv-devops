@@ -134,6 +134,12 @@ Address by tag: `[loginServerUrl]/[repository][:tag]`
 
 Address by digest: `[loginServerUrl]/[repository@sha256][:digest]`
 
+
+We can also have namespaces within the image name. Those are optional sometimes may represent the user or organization. 
+For example, in Dockerhub official images will be under `library` namespace such as `docker.io/library/ubuntu:latest`. If you are pushing images to docker hub then you will need to add your username as a namespace: `docker.io/johndoe/ubuntu:latest`.
+
+Reading: [docker image tag (same applies to podman)](https://docs.docker.com/reference/cli/docker/image/tag/)
+
 # Further Reading Materials 
 
 * [IBM Introduction to containerization](https://www.ibm.com/think/topics/containerization)
