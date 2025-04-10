@@ -2,6 +2,9 @@
 
 ## What are containers?
 
+Software   applications  typically   depend   on   other   libraries,   configuration   files,   or
+services that are provided by the runtime environment. 
+
 Containers ares a set of one or more processes that are isolated from the rest of the system.
 
 Containers provide many of the same benefits as virtual machines, such as *security*, *storage*, and *network isolation*. Containers *require far fewer hardware resources and are quick to start and terminate*. They also **isolate the libraries and the runtime resources (such as CPU and storage) for an application** to minimize the impact of any OS update to the host OS.
