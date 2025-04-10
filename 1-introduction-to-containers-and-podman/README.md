@@ -48,6 +48,14 @@ to less overhead. It works with very few required resources.
 
 "Podman is a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. Podman provides a command line interface (CLI) familiar to anyone who has used the Docker Container Engine. Most users can simply alias Docker to Podman (alias docker=podman) without any problems. Similar to other common Container Engines (Docker, CRI-O, containerd), Podman relies on an OCI compliant Container Runtime (runc, crun, runv, etc) to interface with the operating system and create the running containers. This makes the running containers created by Podman nearly indistinguishable from those created by any other common container engine." - Podman docs
 
+Podman does bring some nicer features compared to Docker: 
+
+* Docker relies on a central daemon that manages containers, but Podman doesn't require a background service running
+* Rootless Containers: Podman allows users to run containers as non-root users, enhancing security.
+* Docker Compatibility: Podman aims to be a drop-in replacement for Docker, meaning it can often use the same commands and workflows.
+* Systemd integration. Podman can generate systemd unit files that allow users to run containers as system services.
+* Podman can generate Kubernetes YAML files from existing container configurations, which makes it easy to use Podman containers as part of a Kubernetes-based orchestration setup.
+
 Bellow are some of the basic Podman commands a begginer should know:
 
 ```bash
