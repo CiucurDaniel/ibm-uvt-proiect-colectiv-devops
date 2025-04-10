@@ -6,7 +6,7 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
 
 ## Course Structure
 
-* 1-introduction-to-containers-and-podman (teoretical section)
+* 1 Introduction to containers-and-podman (teoretical section)
   * What are containers?
   * Containers vs Virtual Machines
   * Podman
@@ -15,18 +15,14 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
   * Container Registries
   * Further Reading Materials 
 
-* 2-hands-on-exercises (practical section)
-  * Install Podman (Rokcylinux)
-  * Create account on Dockerhub.com
-  * Build an image
-  * Tag an image
-  * Pull an image from a public container registry
-  * Push an image to a public container registry
+* 2 Hands on exercises (practical section)
+	*	Install Podman (Rokcylinux)
+	*	Create an account on Dockerhub.com
+	*	Pull an image from a public container registry
+	*	Make changes to an images and save it
+	*	Build and tag an image
+	*	Push an image to a public container registry
 
-* 3-container-orchestration (OPTIONAL: If we have time left)
+* 3 Container orchestration (OPTIONAL: If we have time left)
   * What/Why?
   * Kubernetes and Openshift
-
-## Repository structure
-
-...

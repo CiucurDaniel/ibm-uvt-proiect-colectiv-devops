@@ -50,11 +50,11 @@ to less overhead. It works with very few required resources.
 
 Podman does bring some nicer features compared to Docker: 
 
-* Docker relies on a central daemon that manages containers, but Podman doesn't require a background service running
-* Rootless Containers: Podman allows users to run containers as non-root users, enhancing security.
-* Docker Compatibility: Podman aims to be a drop-in replacement for Docker, meaning it can often use the same commands and workflows.
-* Systemd integration. Podman can generate systemd unit files that allow users to run containers as system services.
-* Podman can generate Kubernetes YAML files from existing container configurations, which makes it easy to use Podman containers as part of a Kubernetes-based orchestration setup.
+* Docker relies on a central daemon that manages containers, but Podman **doesn't require a background service running**
+* **Rootless Containers**: Podman allows users to run containers as non-root users, enhancing security.
+* **Docker Compatibility**: Podman aims to be a drop-in replacement for Docker, meaning it can often use the same commands and workflows.
+* **Systemd integration**. Podman can generate systemd unit files that allow users to run containers as system services.
+* Podman **can generate Kubernetes YAML files from existing container configurations**, which makes it easy to use Podman containers as part of a Kubernetes-based orchestration setup.
 
 Bellow are some of the basic Podman commands a begginer should know:
 
