@@ -5,14 +5,18 @@
 Software   applications  typically   depend   on   other   libraries,   configuration   files,   or
 services that are provided by the runtime environment. 
 
+Developers typically only share code or binaries (instead of sharing an entire virtual machine). Sharing an entire virtual machine with other developers can be inconvenient because of a virtual machine's size and format. Sharing only the code is advantageous in terms of size -  the disadvantage being that extra steps are required when deploying the software into a production environment. Developers often build on code that requires underlying modules (e.g. Ruby, PHP PECL, Python, Perl, etc). Some of these modules are provided as packages in the operating system, but often they are pulled from an external repository - some even need to be compiled from C/C++. Other developers, administrators, and architects are then left to figure out how to install these requirements. Tools like RPM, git, and RVM have been developed to make this easier... but the build and deployment steps can be complicated and often require some measure of expertise (outside the domain of the application being developed).
+
+Neither the "code only" nor "full virtual machine" method of sharing is perfect.
+
 One of the bigger pain points that has traditionally existed between development and
 operations teams is how to make changes rapidly enough to support effective development but without risking the stability of the production environment and infrastructure. 
 
-Containers ares a set of one or more processes that are isolated from the rest of the system.
+Containers make it easier for developers to develop an application in a container in their local environment and deploy that same container into production, minimizing risk and development overhead while also cutting down on the amount of deployment effort required of operations engineers.
 
 Containers provide many of the same benefits as virtual machines, such as *security*, *storage*, and *network isolation*. Containers *require far fewer hardware resources and are quick to start and terminate*. They also *isolate the libraries and the runtime resources (such as CPU and storage) for an application* to minimize the impact of any OS update to the host OS.
 
-Containers make it easier for developers to develop an application in a container in their local environment and deploy that same container into production, minimizing risk and development overhead while also cutting down on the amount of deployment effort required of operations engineers.
+Containers ares a set of one or more processes that are isolated from the rest of the system.
 
 Containers help DevOps by enabling consistent and repeatable environments across development, testing, and production, which aligns development and operations teams by reducing configuration discrepancies and ensuring the application behaves the same way across all stages. This streamlines the CI/CD pipeline, accelerates deployment, and minimizes the risk of errors during transitions from development to production.
 
@@ -39,6 +43,24 @@ A container runs as an isolated user space, with processes and filesystems in th
 on the host operating system itself, and it shares the kernel with other containers. Sharing
 and resource utilization are at their best in containers, and more resources are available due
 to less overhead. It works with very few required resources.
+
+
+![User space vs Kernel Space](../_img/user-space-vs-kernel-space-virtualization-vs-containerization.png)
+
+`Linux kernel` is the core part of the Linux operating system. It's what originally Linus wrote.
+`Linux OS` is a combination of the kernel and a user-land (libraries, GNU utilities, config files, etc).
+`Linux distribution` is a particular version of the Linux operating system like Debian or CentOS.
+
+---
+`User space` refers to all of the code in an operating system that lives outside of the kernel. Most Unix-like operating systems (including Linux) come pre-packaged with all kinds of utilities, programming languages, and graphical tools - these are user space applications. We often refer to this as “userland.”
+
+`Kernel space` is where the core of the operating system, the kernel, operates. The kernel is responsible for managing the system’s resources, such as the CPU, memory, and storage. It also provides system calls, which are interfaces that allow userspace applications to interact with the kernel.
+
+---
+
+A container is indeed just a `process` (or a bunch of processes) running on the Linux host. The container process `is isolated` (namespaces) from the rest of the system and `restricted from both the resource consumption` (cgroups) and security (capabilities, AppArmor, Seccomp) standpoints.
+
+For those interested in the internals of the containers [this blog with 3 articles](https://www.redhat.com/en/blog/architecting-containers-part-1-why-understanding-user-space-vs-kernel-space-matters) from Scott McCarty is an extremely good read.
 
 ## Podman
 
@@ -143,6 +165,7 @@ Reading: [docker image tag (same applies to podman)](https://docs.docker.com/ref
 
 * [IBM Introduction to containerization](https://www.ibm.com/think/topics/containerization)
 * [Best practices for building containers](https://docs.docker.com/build/building/best-practices/)
+* [A Practical Introduction to Docker Container Terminology](https://developers.redhat.com/blog/2016/01/13/a-practical-introduction-to-docker-container-terminology?utm_campaign=containers&intcmp=70160000000h1s6AAA&extIdCarryOver=true&sc_cid=701f2000001OH7EAAW#)
 * [Write your first Containerfile for Podman](https://www.redhat.com/en/blog/write-your-first-containerfile-podman)
 * [Base Images](https://docs.docker.com/build/building/base-images/)
 * [Developing inside a container via VsCode](https://code.visualstudio.com/docs/devcontainers/containers)
