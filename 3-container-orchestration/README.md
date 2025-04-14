@@ -28,14 +28,14 @@ Kubernetes features of top of a container infra:
 **Horizontal scaling** : Applications can scale up and down manually or automatically
 **Self-Healing**: user-defined health checks to monitor containers to restart in case of failure
 **Automated rollout and rollback** : roll updates out to application containers, if something goes wrong kubernetes can rollback to previous integration of the deployment
-**Secrets and configuration management** : can manage the config settings fo application without rebuilding container
+**Secrets and configuration management** : can manage the config settings of application without rebuilding container
 **Operators** : use API to update the cluster state reacting to change in the app state
 
 Red Hat OpenShift Container Plataform (RHOCP) is a set of modular components and services build on top of Kubernetes, adds the capabilities to provide PaaS platform.
 
 OpenShift features to kubernetes cluster :
 
-**Itegrated developer workflow** : integrates a build in container registry, CI/CD pipeline and S2I, a tool to build artifacts from source repositories to container image
+**Integrated developer workflow** : integrates a build in container registry, CI/CD pipeline and S2I, a tool to build artifacts from source repositories to container image
 *Routes* : expose service to the outside world
 **Metrics and logging** : Metric service and aggregated logging
 **Unified UI** : UI to manage the different capabilities
