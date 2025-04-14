@@ -14,35 +14,35 @@ if (Test-Path $combinedMd) {
 Get-ChildItem -Path . -Recurse -Filter "README.md" | ForEach-Object {
     $dirName = $_.Directory.Name
 
-    # Extract the number (if it exists) and the rest of the directory name
     if ($dirName -match '^(\d+)-(.*)$') {
         $number = $matches[1]
         $title = $matches[2] -replace '[-_]', ' ' -split '\s+' | ForEach-Object { $_.Substring(0,1).ToUpper() + $_.Substring(1).ToLower() }
         $prettyTitle = "$number $($title -join ' ')"
-    }
-    else {
-        # If no number, just process as a regular title
+    } else {
         $title = $dirName -replace '[-_]', ' ' -split '\s+' | ForEach-Object { $_.Substring(0,1).ToUpper() + $_.Substring(1).ToLower() }
         $prettyTitle = $title -join ' '
     }
 
-    # Add the formatted title to the combined markdown
-    Add-Content -Path $combinedMd -Value "`n# $prettyTitle`n"
+    # Add heading
+    Add-Content -Path $combinedMd -Value "`n# $prettyTitle`n" -Encoding UTF8
 
-    # Read content and fix image paths
-    $content = Get-Content $_.FullName
-    $fixedContent = $content -replace "\!\[(.*?)\]\(\.\.\/_img\/(.*?)\)", '![${1}](./_img/${2})'
+    # Read, fix image paths and remove control characters
+    $content = Get-Content $_.FullName -Raw -Encoding UTF8
+    $fixedContent = $content `
+        -replace "\!\[(.*?)\]\(\.\.\/_img\/(.*?)\)", '![${1}](./_img/${2})' `
+        -replace '[\x00-\x08\x0B\x0C\x0E-\x1F]', ''  # Remove control characters
 
-    Add-Content -Path $combinedMd -Value $fixedContent
+    Add-Content -Path $combinedMd -Value $fixedContent -Encoding UTF8
 }
 
 # Generate the PDF with Pandoc
 try {
-    pandoc $combinedMd -o $outputPdf --pdf-engine="$pdflatexPath" --resource-path=.
-    Write-Host "✅ Generated $outputPdf from all README.md files, including images."
-} catch {
-    Write-Host "❌ PDF generation failed: $_"
-}
+    pandoc $combinedMd -o $outputPdf --pdf-engine="$pdflatexPath" --resource-path=. --from markdown
+    Write-Host "Generated $outputPdf from all README.md files, including images."
 
-# Clean up temporary file
-Remove-Item $combinedMd
+    # Clean up only if successful
+    Remove-Item $combinedMd
+} catch {
+    Write-Host "PDF generation failed: $_"
+    Write-Host "Leaving $combinedMd in place for debugging."
+}
