@@ -44,7 +44,7 @@ podman run -it --name my-container ubuntu:22.04
 apt-get update && apt-get install -y git
 ```
 
->HINT: Always use `--help` to know various flags you can use. Like --rm flag on docker run which "Automatically removes the container and its associated anonymous volumes when it exits"
+>HINT: Always use `--help` to know various flags you can use. Like --rm flag on podman run which "Automatically removes the container and its associated anonymous volumes when it exits"
 
 ## Make changes to an images and save it
 
@@ -52,16 +52,16 @@ apt-get update && apt-get install -y git
 # Run container interactively
 # -i flag -> Keeps STDIN (standard input) open, even if not attached
 # -t flag -> Allocates a pseudo-TTY (a terminal). Makes the container look and feel like a real terminal session.
-docker run -it --name my-container ubuntu:22.04
+podman run -it --name my-container ubuntu:22.04
 
 # From inside ubuntu container install git
 apt-get update && apt-get install -y git
 
 # Commit your changes in a new container
-docker commit my-container my-ubuntu-with-git
+podman commit my-container my-ubuntu-with-git
 
 # Now enter you container and check is git is is installed
-docker run -it my-ubuntu-with-git
+podman run -it my-ubuntu-with-git
 
 git version
 ```
@@ -125,14 +125,14 @@ CMD ["./hello-app"]
 ```bash
 podman build -t go-hello-app .
 
-docker run -d -p 8080:8080 go-hello-app
+podman run -d -p 8080:8080 go-hello-app
 
 curl http://localhost:8080 # you need to install curl on rockylinux via: dnf install curl
 
 podman stop <generated_name_for_container>
 ```
 
->HINT: Use `docker build --help` to check for important flags. In this case we are interested to gie the image a name and tag which is done via  `-t, --tag Name and optionally a tag (format: "name:tag")` flag.     
+>HINT: Use `podman build --help` to check for important flags. In this case we are interested to gie the image a name and tag which is done via  `-t, --tag Name and optionally a tag (format: "name:tag")` flag.     
 
 >HINT: Port forwarding in Docker/Podman allows you to map a port on your local machine to a port inside the container, enabling you to access the container’s services from outside.
 
