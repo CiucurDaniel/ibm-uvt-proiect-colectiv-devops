@@ -45,18 +45,19 @@ and resource utilization are at their best in containers, and more resources are
 to less overhead. It works with very few required resources.
 
 
-![User space vs Kernel Space](../_img/user-space-vs-kernel-space-virtualization-vs-containerization.png)
+![Virtualization vs Containerization](../_img/user-space-vs-kernel-space-virtualization-vs-containerization.png)
 
 `Linux kernel` is the core part of the Linux operating system. It's what originally Linus wrote.
 `Linux OS` is a combination of the kernel and a user-land (libraries, GNU utilities, config files, etc).
 `Linux distribution` is a particular version of the Linux operating system like Debian or CentOS.
 
----
+<br>
+
 `User space` refers to all of the code in an operating system that lives outside of the kernel. Most Unix-like operating systems (including Linux) come pre-packaged with all kinds of utilities, programming languages, and graphical tools - these are user space applications. We often refer to this as “userland.”
 
 `Kernel space` is where the core of the operating system, the kernel, operates. The kernel is responsible for managing the system’s resources, such as the CPU, memory, and storage. It also provides system calls, which are interfaces that allow userspace applications to interact with the kernel.
 
----
+<br>
 
 A container is indeed just a `process` (or a bunch of processes) running on the Linux host. The container process `is isolated` (namespaces) from the rest of the system and `restricted from both the resource consumption` (cgroups) and security (capabilities, AppArmor, Seccomp) standpoints.
 
