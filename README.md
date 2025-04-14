@@ -6,7 +6,7 @@ This repository holds course materials for "Podman" course, part of `DevOps UVT 
 
 ## Course Structure
 
-* 1 Introduction to containers-and-podman (teoretical section)
+* 1 Introduction to containers-and-podman (theoretical section)
   * What are containers?
   * Containers vs Virtual Machines
   * Podman
