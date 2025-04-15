@@ -152,3 +152,13 @@ spec:
           type: Utilization
           averageUtilization: 70
 ```
+
+## How to get hands-on experience with Kubernetes
+
+For those interested to get hands-on experience with Kubernetes without having to spend money on a cloud Kubernetes instance, there are various alterntives that can be used to simulate a Kubernetes cluster on your machine. 
+
+I personally recommend [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download).
+
+minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
+
+All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: `minikube start`.
