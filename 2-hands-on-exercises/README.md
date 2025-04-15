@@ -210,3 +210,13 @@ podman images
 ```
 
 The image build in a single stage which still contains the GO SDK will have around `943 MB` while the image build using multiple stages will have only about `6.24 MB`.
+
+## Cleanup commands
+
+If you want to remove all containers and images run the commands:
+
+```bash
+podman system prune
+podman container rm --all
+podman image rm --all
+```
