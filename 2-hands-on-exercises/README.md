@@ -153,3 +153,60 @@ podman push docker.io/ciucurdaniel/go-hello-app:latest
 Go to container registry and check your image will now exist within a repository.
 
 Example: https://hub.docker.com/r/ciucurdaniel/go-hello-app
+
+## Multi-stage container builds
+
+First we create a seprate folder where we copy the golang code and the Dockerfile
+
+```bash
+cd
+ls # should show the app/ directory with main.go and Dockerfile inside
+mkdir multi-stage-app
+cp app/* /multi-stage-app
+```
+
+```Dockerfile
+# This will be stage 1 the build stage
+FROM golang:1.20 as builder 
+
+WORKDIR /app
+
+COPY . .
+
+# Tell golang to produce a static binary, this is more relevant is we do multi-stage container builds
+ENV CGO_ENABLED=0 GOOS=linux 
+
+RUN go mod init myapp || echo "go.mod already exists"
+
+RUN go mod tidy
+
+RUN go build -o hello-app .
+
+# This will be the second stage where we have a very minimal base image and we just add our binary
+FROM scratch
+
+COPY --from=builder /app/hello-app /app/hello-app
+
+EXPOSE 8080
+
+CMD ["/app/hello-app"]
+# ENTRYPOINT ["./hello-app"]
+```
+
+```bash
+# Build the image
+podman build -t test-multi-stage .
+
+# Run the image just to confirm it works correctly 
+podman run -d -p 8080:8080 test-multi-stage
+
+curl http://localhost:8080
+```
+
+Compare the image sizes
+
+```bash
+podman images
+```
+
+The image build in a single stage which still contains the GO SDK will have around `943 MB` while the image build using multiple stages will have only about `6.24 MB`.
