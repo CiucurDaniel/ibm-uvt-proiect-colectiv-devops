@@ -108,9 +108,15 @@ podman exec
 podman login
 ```
 
+The `Open Container Initiative (OCI)` is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images. The OCI was formed in 2015 when developers recognized that the quickly growing container industry needed standards to ensure the portability of containers across systems and platforms.
+
+The OCI currently manages three specifications: the `Runtime Specification`, the `Image Specification`, and the `Distribution Specification`. These specifications work together to ensure that any OCI-compliant image can be run on any OCI-compliant runtime, and that OCI-compliant registries (such as Docker, Amazon Elastic Container Registry, or Google Container Registry) are able to distribute OCI images according to OCI guidelines.
+
 ## Containerfile (definition) to Image (build) to Containers (running) 
 
-A Containerfile (Dockerfile) is the Docker image’s source code. A Containerfile (Dockerfile) is a text file containing various instructions and configurations. The `FROM` command in a Containerfile (Dockerfile) identifies the base image from which you are constructing.
+A `Containerfile (Dockerfile)` is the Docker image’s source code. A Containerfile (Dockerfile) is a text file containing various instructions and configurations. The `FROM` command in a Containerfile (Dockerfile) identifies the base image from which you are constructing. An `image` is an immutable file that contains the source code, libraries, dependencies,
+tools, and other files needed for an application to run. In a way images are templates used to
+build a container. A `container` is, ultimately, just a running image.
 
 ![Dockerfile vs image vs container illustration](../_img/dockerfile-image-container.png "Dockerfile vs image vs container illustration")
 
